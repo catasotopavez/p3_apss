@@ -1,0 +1,21 @@
+.pin2 {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin-left: 115px;
+    border-radius: 50%;
+    border: 8px solid #b90101;
+    width: 8px;
+    height: 8px;
+  }
+  
+  .pin2::after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    bottom: -24px;
+    left: -9px;
+    border: 10px solid transparent;
+    border-top: 17px solid #b90101;
+  }

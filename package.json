@@ -1,0 +1,65 @@
+{
+  "name": "travel_log",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@apollo/client": "^3.7.4",
+    "@apollo/react-hooks": "^4.0.0",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "@mui/icons-material": "^5.14.7",
+    "@mui/material": "^5.14.7",
+    "@mui/styles": "^5.11.2",
+    "@react-google-maps/api": "^2.19.2",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.5.0",
+    "bootstrap": "^5.3.1",
+    "cors": "^2.8.5",
+    "date-fns": "^2.30.0",
+    "google-map-react": "^2.2.1",
+    "graphql": "^16.6.0",
+    "graphql-tag": "^2.12.6",
+    "leaflet": "^1.9.4",
+    "material-ui-animated-fab": "^1.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-google-maps": "^9.4.5",
+    "react-leaflet": "^4.2.1",
+    "react-scripts": "^5.0.1",
+    "react-use-scroll-direction": "^0.1.0",
+    "subscriptions-transport-ws": "^0.11.0",
+    "use-places-autocomplete": "^4.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "react-router-dom": "^6.15.0"
+  }
+}

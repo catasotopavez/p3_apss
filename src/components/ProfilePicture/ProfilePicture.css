@@ -1,0 +1,10 @@
+.profile-picture-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px; /* Espaciado del borde derecho */
+    align-items: center; /* Alinea los elementos verticalmente en el centro */
+  }
+  
+  .update-button {
+    margin-left: 10px; /* Espaciado entre el botón y el input de archivo */
+  }

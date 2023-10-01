@@ -1,0 +1,58 @@
+
+.GroupStack {
+    height: calc((100%) - 55px);
+    margin-top: 0;
+    margin-bottom: 55px;
+    flex: 0 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-top: 85px; 
+}
+/* Estilo para el enlace de cada post */
+.post-link {
+    text-decoration: none; /* Quita la decoración de subrayado del enlace */
+    display: block; /* Hace que el enlace ocupe todo el ancho disponible */
+    margin-bottom: 20px; /* Espaciado entre enlaces */
+    color: #333; /* Color del texto del enlace */
+  }
+  
+  /* Estilo para la caja de cada post */
+  .post-box {
+    background-color: #fff; /* Fondo blanco */
+    border: 1px solid #ddd; /* Borde delgado gris */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  }
+  
+  /* Estilos para los títulos y autores */
+  .post-box h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .post-box p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+
+/* Add this to your PostPage.css file or another CSS file you are using */
+.button-link {
+    display: inline-block;
+    padding: 10px 20px; /* Adjust padding as needed */
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    text-decoration: none;
+    border: none;
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+  
+    /* Optional: Add more styles (e.g., hover styles) as needed */
+  }
+  
+  .button-link:hover {
+    background-color: #0056b3; /* Button background color on hover */
+  }

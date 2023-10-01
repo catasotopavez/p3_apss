@@ -1,0 +1,30 @@
+.map-container {
+    height: 600px;
+    width: 200%;
+    margin-top: 80px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .pointer{
+    cursor: 'pointer';
+    margin-bottom:'8px';
+    background-color: 'white';
+    color: 'black';
+    border: '1px solid black';
+    transition: 'background-color 0.2s';
+  }
+
+  .custom-button {
+    margin-left: 10px;
+    background-color: rgb(135, 216, 135);
+    color: white;
+  }
+
+  .select{ padding: '10px';
+     margin-bottom: '10px';
+      background-color: 'white' }
+
+  /* .map-icon {
+    width: 10px; /* Cambia esto al ancho deseado 
+    height: 10px; Cambia esto al alto deseado */
