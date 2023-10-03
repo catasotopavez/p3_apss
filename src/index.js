@@ -26,7 +26,7 @@ const authLink = setContext((_, {headers}) => {
 });
 
 //const hostname = window.location.hostname;
-const baseUrl = 'http://localhost:3000'
+const baseUrl = 'https://p1apps-production.up.railway.app'
 let gqlUrl = `${baseUrl}/api/v1/graphql`;
 
 const gqlHTTPLink = createHttpLink({

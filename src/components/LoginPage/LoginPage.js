@@ -30,7 +30,7 @@ export default function LoginPage({ onLogin }) {
 
     try {
       const base64Credentials = btoa(`${username}:${password}`);
-      const response = await Axios.post('http://localhost:3000/api/v1/api-keys', null, {
+      const response = await Axios.post('https://p1apps-production.up.railway.app/api/v1/api-keys', null, {
         headers: {
           Authorization: `Basic ${base64Credentials}`,
         },

@@ -12,7 +12,7 @@ function ShowPicture() {
       'Authorization': `Bearer ${AUTH_TOKEN}`, 
     };
 
-    axios.get(`http://localhost:3000/api/v1/users/avatar/${email}`, { responseType: 'blob' , headers})
+    axios.get(`https://p1apps-production.up.railway.app/api/v1/users/avatar/${email}`, { responseType: 'blob' , headers})
       .then(response => {
         const imageUrl = URL.createObjectURL(response.data);
         setAvatarUrl(imageUrl); 

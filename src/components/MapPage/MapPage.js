@@ -42,7 +42,7 @@ const MapPage = () => {
   const handleResultClick2 = async (lat, lng, formatted_address) => {
     try {
       // Paso 1: Obtener el último viaje creado
-      const tripsResponse = await fetch('http://localhost:3000/api/v1/trips', {
+      const tripsResponse = await fetch('https://p1apps-production.up.railway.app/api/v1/trips', {
         headers: {
           Authorization: `Bearer ${backey}`,
         },
@@ -69,7 +69,7 @@ const MapPage = () => {
         name: formatted_address, // Usa el nombre de la dirección como nombre del destino
       };
   
-      const response = await fetch(`http://localhost:3000/api/v1/trips/${lastTrip.id}/destinations`, {
+      const response = await fetch(`https://p1apps-production.up.railway.app/api/v1/trips/${lastTrip.id}/destinations`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

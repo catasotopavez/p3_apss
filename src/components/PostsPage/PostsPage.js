@@ -12,7 +12,7 @@ function PostsPage() {
 
   useEffect(() => {
     // Llamar al backend para obtener los posts del usuario actual y trip_id coincidente
-    fetch(`http://localhost:3000/api/v1/posts/index_by_user_and_trip?trip_id=${tripId}&user=${localStorage.getItem("email")}`, {
+    fetch(`https://p1apps-production.up.railway.app/api/v1/posts/index_by_user_and_trip?trip_id=${tripId}&user=${localStorage.getItem("email")}`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${AUTH_TOKEN}`, // Reemplaza AUTH_TOKEN con tu token

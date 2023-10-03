@@ -26,7 +26,7 @@ function ProfilePicture() {
       const headers = {
         'Authorization': `Bearer ${AUTH_TOKEN}`, 
       };
-      const response = await axios.patch(`http://localhost:3000/api/v1/users/${email}`, formData, { headers });
+      const response = await axios.patch(`https://p1apps-production.up.railway.app/api/v1/users/${email}`, formData, { headers });
       console.log(response.data);
     } catch (error) {
       console.error('Error al actualizar el avatar:', error);

@@ -9,7 +9,7 @@ const FriendshipQRCode = () => {
         Authorization: `Bearer ${authToken}`,
       };
     // Realiza una solicitud HTTP al backend para obtener el token de amistad
-    fetch('http://localhost:3000/friendship_tokens/show', {
+    fetch('https://p1apps-production.up.railway.app/friendship_tokens/show', {
       headers, // Agrega los encabezados con el token de autorización
     })
       .then((response) => response.blob())
