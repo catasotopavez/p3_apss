@@ -32,6 +32,7 @@ function ShowPicture(props) {
       )}
     </div>
   );
+  
 }
 
 export default ShowPicture;
