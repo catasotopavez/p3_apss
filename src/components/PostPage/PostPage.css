@@ -1,0 +1,65 @@
+/* Updated styles for .post-page-container */
+.post-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  padding-top: 85px;
+  margin-top: 0;
+  margin-bottom: 55px;
+  height: 100vh; /* Use viewport height for full window height */
+  width: 100%; /* Use full window width */
+}
+
+/* Updated style for .post-box */
+.post-box {
+  padding: 20px; /* Reduced padding */
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Center align text */
+}
+
+/* Updated styles for .image-gallery-container */
+.image-gallery-container {
+  display: grid; /* Use grid layout for image gallery */
+  grid-template-columns: repeat(3, 1fr); /* Display three images per row */
+  gap: 10px; /* Add gap between images */
+  margin-top: 20px; /* Added margin for spacing */
+}
+
+/* Updated style for .gallery-thumbnail */
+.gallery-thumbnail {
+  width: 100%; /* Make each image take the full width of its grid cell */
+  max-height: 100%; /* Allow images to take full height of the viewport */
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  object-fit: cover; /* Maintain aspect ratio and cover the grid cell */
+}
+
+.gallery-thumbnail:hover {
+  transform: scale(1.05); /* Add hover effect */
+}
+
+/* Updated styles for .image-gallery-modal */
+.image-gallery-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-gallery-modal.zoomed {
+  display: flex;
+}
+
+/* Updated style for .modal-image */
+.modal-image {
+  max-width: 90%; /* Adjusted max width */
+  max-height: 90vh; /* Allow image to take full height of the viewport */
+}

@@ -1,39 +1,58 @@
-import React, { Component, useState} from "react";
+import React, { useState, useEffect } from "react";
 import './TopNav.css';
 import { Avatar, Box, Button, Container, Menu, MenuItem } from "@mui/material";
-import { Rectangle } from "@mui/icons-material";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import { useNavigate } from 'react-router-dom';
-
+import axios from 'axios'; // Import axios
 
 function TopNav(props) {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-  const [showNotification, setShowNotification]= useState(false)
-  const navigate = useNavigate(); 
+  const [showNotification, setShowNotification] = useState(false);
+  const navigate = useNavigate();
+  const userEmail = localStorage.getItem("email");
+  const [avatarUrl, setAvatarUrl] = useState(null); // State for avatarUrl
+  const AUTH_TOKEN = process.env.REACT_APP_AUTH0_CLIENT_ID;
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  
+
   const handleClose = () => {
     setAnchorEl(null);
   };
 
-  const isLoggedIn = props.isLoggedIn; // Asegúrate de pasar el estado isLoggedIn como prop
+  const isLoggedIn = props.isLoggedIn;
 
-  if (!isLoggedIn) {
-    return null; // No mostrar TopNav si el usuario no está autenticado
-  }
+  useEffect(() => {
+    if (!userEmail) {
+      return; // No need to fetch if userEmail is not available
+    }
 
-  const handleLogout= () => {
+    // Fetch the user's profile picture URL based on their email
+    const headers = {
+      'Authorization': `Bearer ${AUTH_TOKEN}`,
+    };
+
+    axios.get(`https://p1apps-production.up.railway.app/api/v1/users/avatar/${userEmail}`, { responseType: 'blob', headers })
+      .then(response => {
+        const imageUrl = URL.createObjectURL(response.data);
+        setAvatarUrl(imageUrl);
+      })
+      .catch(error => {
+        console.error('Error al obtener el archivo:', error);
+      });
+  }, [userEmail]); // Include userEmail as a dependency
+
+  const handleLogout = () => {
     setShowNotification(true);
     localStorage.removeItem('AUTH_TOKEN');
     localStorage.removeItem('email');
     setTimeout(() => {
       window.location.reload();
-    }, 2000); // Espera 2000 milisegundos (2 segundos)
-  }
+    }, 2000);
+  };
 
   const closeNotification = (event, reason) => {
     if (reason === 'clickaway') {
@@ -44,7 +63,7 @@ function TopNav(props) {
 
   const handleProfileClick = () => {
     navigate('/profile');
-    handleClose(); // Close the menu
+    handleClose();
   };
 
   return (
@@ -53,22 +72,22 @@ function TopNav(props) {
         <p className={"AppName"}>Travel Log</p>
      
         {showNotification && (
-        <Snackbar
-        open={showNotification}
-        autoHideDuration={2000}
-        onClose={closeNotification}
-      >
-        <MuiAlert
-          elevation={6}
-          variant="filled"
-          onClose={closeNotification}
-          severity="error"
-        >
-          Has cerrado sesión
-        </MuiAlert>
-      </Snackbar>
-    
-      )}
+          <Snackbar
+            open={showNotification}
+            autoHideDuration={2000}
+            onClose={closeNotification}
+          >
+            <MuiAlert
+              elevation={6}
+              variant="filled"
+              onClose={closeNotification}
+              severity="error"
+            >
+              Has cerrado sesión
+            </MuiAlert>
+          </Snackbar>
+        )}
+
         <Button
           id="profile-button"
           aria-controls={open ? 'profile-menu' : undefined}
@@ -77,8 +96,7 @@ function TopNav(props) {
           onClick={handleClick}
           sx={{ position: 'absolute', top: '16px', left: '16px' }}
         >
-          <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" left={0} position={"absolute"} />
-        
+          <Avatar alt="Profile Picture" src={avatarUrl} />
         </Button>
   
         <Menu
@@ -95,11 +113,6 @@ function TopNav(props) {
           <MenuItem onClick={handleClose}>Settings</MenuItem>
           <MenuItem onClick={handleLogout}>Logout</MenuItem>
         </Menu>
-        
-
-       
-        
-
       </Container>
     </Box>
   );

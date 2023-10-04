@@ -3,10 +3,11 @@ import axios from 'axios';
 import { AUTH_TOKEN } from "../../constants";
 import './ShowPicture.css';
 
-function ShowPicture() {
+function ShowPicture(props) {
   const [avatarUrl, setAvatarUrl] = useState(null);
 
   useEffect(() => {
+    // Fetch the user's profile picture URL from your API or server
     const email = localStorage.getItem("email");
     const headers = {
       'Authorization': `Bearer ${AUTH_TOKEN}`, 
@@ -20,20 +21,17 @@ function ShowPicture() {
       .catch(error => {
         console.error('Error al obtener el archivo:', error);
       });
-  }, []);
-  
+  }, []); // Empty dependency array to run this effect once
 
   return (
-    <div className="show-picture-container">
+    <div className="show-picture">
       {avatarUrl ? (
         <img src={avatarUrl} alt="Avatar" className="show-picture-image" />
       ) : (
-        <p>Imagen de perfil no encontrada</p>
+        <p>No profile picture</p>
       )}
     </div>
   );
 }
 
 export default ShowPicture;
-
-

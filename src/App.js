@@ -18,12 +18,15 @@ import TripPage from './components/TripPage/TripPage';
 import DestinationPage from './components/DestinationPage/DestinationPage';
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import PostsPage from "./components/PostsPage/PostsPage";
-import FriendshipQRCode from "./components/FriendshipQRCode/FriendshipQRCode.js"
+import FriendshipQRCode from "./components/FriendshipQRCode/FriendshipQRCode"
+import FriendshipScan from "./components/FriendshipScan/FriendshipScan"
+import PostPage from "./components/PostPage/PostPage"
 
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userEmail, setUserEmail] = useState('');
+  const [avatarUrl, setAvatarUrl] = useState(null);
 
   useEffect(() => {
     // Check if the user is already logged in on page load
@@ -54,7 +57,7 @@ function App() {
         <div className="App__content">
           {isLoggedIn ? (
             <>
-              <TopNav isLoggedIn={isLoggedIn} onLogout={handleLogout} />
+              <TopNav avatarUrl={avatarUrl} isLoggedIn={isLoggedIn} onLogout={handleLogout} />
               <Routes>
                 <Route exact path="/" element={<HomePage />} />
                 <Route exact path="/trips" element={<TripsPage email={userEmail} />} />
@@ -67,6 +70,8 @@ function App() {
                 <Route path="/friendship-qr" element={<FriendshipQRCode />} />
                 <Route exact path="/profile" element={<ProfilePage />} />
                 <Route path="/:tripId/posts" element={<PostsPage />} />
+                <Route path="/friendship-scan" element={<FriendshipScan />} />
+                <Route path="/trip/:tripId/posts/:postId" element={<PostPage />} />
               </Routes>
               <BottomBar />
             </>

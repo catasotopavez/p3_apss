@@ -1,10 +1,42 @@
-.profile-picture-container {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 10px; /* Espaciado del borde derecho */
-    align-items: center; /* Alinea los elementos verticalmente en el centro */
-  }
-  
-  .update-button {
-    margin-left: 10px; /* Espaciado entre el botón y el input de archivo */
-  }
+.buttons-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.file-input-label {
+  background-color: rgb(135, 216, 135);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px; /* Set a fixed width for the label */
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-flex; /* Ensure inline alignment with the button */
+  align-items: center; /* Vertically align label content */
+}
+
+.file-input-label:hover {
+  background-color: rgb(135, 216, 135);
+}
+
+.file-input {
+  display: none; /* Hide the file input */
+}
+
+.update-button {
+  background-color: rgb(135, 216, 135);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px; /* Set a fixed width for the button */
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.update-button:hover {
+  background-color: rgb(135, 216, 135);
+}

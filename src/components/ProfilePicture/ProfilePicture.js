@@ -35,10 +35,22 @@ function ProfilePicture() {
   };
 
   return (
-    <div className="profile-picture-container">
-      <input type="file" accept="image/*" onChange={handleFileChange} />
-      <button className="update-button" onClick={handleUpdate}>Actualizar Avatar</button>
-    </div>
+    <div className="buttons-container">
+  <label className="file-input-label">
+    <input
+      type="file"
+      accept="image/*"
+      onChange={handleFileChange}
+      className="file-input"
+    />
+    Upload Image
+  </label>
+  <button className="update-button" onClick={handleUpdate}>
+    Actualizar
+  </button>
+</div>
+
+
   );
 }
 

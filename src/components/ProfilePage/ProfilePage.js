@@ -35,37 +35,37 @@ function ProfilePage() {
   return (
     <div className="profile-page-container">
       <Stack
-        direction="column"
+        direction="row"
         justifyContent="flex-start"
-        alignItems="center"
+        alignItems="flex-start"
         spacing={2}
         overflow={"scroll"}
         sx={{ mx: 2, mt: "90px" }}
       >
-        <React.Fragment>
+        <div className="profile-content">
+          <ProfilePicture />
+          <ShowPicture />
+        </div>
+        <div className="user-information">
           {user && (
             <div>
-            <h1>PROFILE INFO</h1>
-            <br></br>
-            <div className="user-details">
-              <p className="user-info">First Name: {user.firstName}</p>
-              <p className="user-info">Last Name: {user.lastName}</p>
-              <p className="user-info">Email: {user.email}</p>
-              <p className="user-info">Phone: {user.phone}</p>
-              <p className="user-info">Description: {user.description}</p>
-            </div>
+              <h1>User Information</h1>
+              <div className="user-details">
+                <p className="user-info"><strong>Name:</strong> {user.firstName}</p>
+                <p className="user-info"><strong>Last Name:</strong> {user.lastName}</p>
+                <p className="user-info"><strong>Email:</strong> {user.email}</p>
+                <p className="user-info"><strong>Phone:</strong> {user.phone}</p>
+                <p className="user-info"><strong>Description:</strong> {user.description}</p>
+              </div>
             </div>
           )}
-        </React.Fragment>
-        <br></br>
-        <ProfilePicture />
-        <ShowPicture />
-        <br></br>
-        <br></br>
-        <br></br>
+        </div>
       </Stack>
     </div>
   );
+  
+  
+  
 }
 
 export default ProfilePage;
